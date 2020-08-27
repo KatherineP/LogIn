@@ -1,15 +1,9 @@
-import axios from 'axios';
-import API_ENV from '../config/api.config';
+import axios from '../plugins';
 
 export async function getCountries() {
   try {
     const response = await axios.get(
-      `${API_ENV.apiUrl}/location/get-countries`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
+      `/location/get-countries`,
     );
 
     //console.log(response.data);

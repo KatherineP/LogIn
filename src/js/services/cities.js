@@ -1,15 +1,9 @@
-import axios from 'axios';
-import API_ENV from '../config/api.config';
+import axios from '../plugins';
 
 export async function getCities(index) {
   try {
     const response = await axios.get(
-      `${API_ENV.apiUrl}/location/get-cities/${index}`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
+      `/location/get-cities/${index}`,
     );
 
     console.log(response.data);
