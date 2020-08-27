@@ -1,7 +1,6 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/style.css';
-
 import UI from './config/ui.config';
 import registerUI from './config/ui.config.register';
 import { validate } from './helpers/validate';
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 country.addEventListener('change', async e => {
   const listOfCountries = await getCountries();
-  //console.log(listOfCountries);
   const selectedCountry = country.value;
   for( let key in listOfCountries ){
     if (listOfCountries[key] === selectedCountry) {
@@ -40,7 +38,7 @@ country.addEventListener('change', async e => {
       city.disabled = false;
       return;
     }
-    if (listOfCountries[key] === 'Select your country:'){
+    if (selectedCountry === 'Select your country:'){
       city.setAttribute('disabled', 'true');
       return;
     }
@@ -69,7 +67,7 @@ async function onSubmit() {
     form.reset();
     notify({ msg: 'Login success', className: 'alert-success' });
   } catch (err) {
-    notify({ mas: 'Login faild', className: 'alert-danger' });
+    notify({ mas: 'Login failed', className: 'alert-danger' });
   }
 }
 
