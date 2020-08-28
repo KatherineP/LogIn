@@ -73,7 +73,7 @@ async function onSubmit() {
 
 async function onCreateNewUser() {
   try {
-    await register(
+   const registerTest =  await register(
        email.value,
        password.value, 
        nickname.value, 
@@ -86,11 +86,11 @@ async function onCreateNewUser() {
        date_of_birth_day.value, 
        date_of_birth_month.value,
        date_of_birth_year.value);
-       // console.log(generateCountriesList(getCountries));
+       registerTest;
        registerForm.reset();
-    notify({ msg: 'Register success', className: 'alert-success' });
+    notify({ msg: registerTest.message, className: 'alert-success' });
   } catch (err) {
-    notify({ mas: 'LoRegistergin faild', className: 'alert-danger' });
+    notify({ mas: 'Register failed', className: 'alert-danger' });
   }
 }
 
